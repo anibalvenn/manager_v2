@@ -1,17 +1,17 @@
 import csv
 import os
-from classes.tisch import Tisch
-from classes.player import Player
+from app.services.classes.tisch import Tisch
+from app.services.classes.player import Player
 
-base_directory='championships'
-playersFileCSV='../players.csv'
+base_directory = "db/championships"
+playersFileCSV = "db/players.csv"
 
 class RankedSerie:
   def __init__(self, series_label ,filename='ranking_total.csv'):
     self.series_label = series_label
     self.label = series_label
     self.tische = []
-    self.filename=filename
+    self.filename="C:/Users/User/Documents/skat/manager_v2/db/championships/Paulista/"+filename
     self.neuer_gesetzte_tisch()
 
    

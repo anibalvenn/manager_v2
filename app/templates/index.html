@@ -13,7 +13,14 @@
     <input type="text" name="championship_name" placeholder="Championship Name" required>
     <input type="submit" value="Start Championship">
   </form>
-  
+  <!-- Hidden input element to allow file selection -->
+  <input type="file" id="fileInput" accept=".csv" style="display: none;">
+  <!-- Button to trigger file selection -->
+  <button onclick="handleRankedSeriesFileSelection()">Ranked Series</button>
+  <button onclick="handleAddResultsFileSelection()">Add Results</button>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </body>
 
 </html>
