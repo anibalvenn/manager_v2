@@ -30,7 +30,7 @@ def init_routes(app):
       if data and 'fileName' in data:
           file_name = data['fileName']
           print('Ranked series file name:', file_name)
-          # build_ranked_series(file_name)
+          build_ranked_series(file_name)
 
           # Now you have the file name, you can process it further
 

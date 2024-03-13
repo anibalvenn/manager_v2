@@ -63,3 +63,16 @@ function handleAddResultsFileSelection() {
       });
   });
 }
+
+function toggleVisibility(divId) {
+  const newChampionshipDiv = document.getElementById('newChampionship');
+  const existingChampionshipDiv = document.getElementById('existingChampionship');
+
+  if (divId === 'newChampionship') {
+    newChampionshipDiv.classList.remove('hidden');
+    existingChampionshipDiv.classList.add('hidden');
+  } else {
+    newChampionshipDiv.classList.add('hidden');
+    existingChampionshipDiv.classList.remove('hidden');
+  }
+}

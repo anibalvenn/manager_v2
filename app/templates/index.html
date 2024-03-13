@@ -3,23 +3,36 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Home Page</title>
+  <title>Championship Management</title>
+  <!-- Include Tailwind CSS from CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </head>
 
-<body>
-  <form action="/start-championship" method="post">
-    <input type="number" name="num_series" placeholder="Number of Series" required>
-    <input type="number" name="num_random_series" placeholder="Number of Random Series" required>
-    <input type="text" name="championship_name" placeholder="Championship Name" required>
-    <input type="submit" value="Start Championship">
-  </form>
-  <!-- Hidden input element to allow file selection -->
-  <input type="file" id="fileInput" accept=".csv" style="display: none;">
-  <!-- Button to trigger file selection -->
-  <button onclick="handleRankedSeriesFileSelection()">Ranked Series</button>
-  <button onclick="handleAddResultsFileSelection()">Add Results</button>
+<body class="m-4">
+  <div class="body-background"></div> <!-- Add this line -->
 
-  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <div class="flex mb-4 bg-white p-4 shadow"> <!-- Added bg-white and p-4 here -->
+    <button onclick="toggleVisibility('newChampionship')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">New Championship</button>
+    <button onclick="toggleVisibility('existingChampionship')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-2">Existing Championship</button>
+  </div>
+
+  <div id="newChampionship" class="hidden">
+    <form action="/start-championship" method="post" class="space-y-2">
+      <input type="number" name="num_series" placeholder="Number of Series" class="input" required>
+      <input type="number" name="num_random_series" placeholder="Number of Random Series" class="input" required>
+      <input type="text" name="championship_name" placeholder="Championship Name" class="input" required>
+      <input type="submit" value="Start Championship" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    </form>
+  </div>
+
+  <div id="existingChampionship" class="hidden">
+    <input type="file" id="fileInput" accept=".csv" class="hidden">
+    <button onclick="handleRankedSeriesFileSelection()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Ranked Series</button>
+    <button onclick="handleAddResultsFileSelection()" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Add Results</button>
+  </div>
 
 </body>
 
